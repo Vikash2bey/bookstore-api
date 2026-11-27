@@ -1,0 +1,38 @@
+server:
+  port: 8181
+
+app:
+  orders:
+    reservation-duration: ${ORDER_RESERVATION_DURATION:PT15M}
+    expiration-check-interval: ${ORDER_EXPIRATION_CHECK_INTERVAL:PT1M}
+  security:
+    jwt:
+      secret: ${JWT_SECRET_KEY:bookstore-secret-key-dev}
+      expiration-ms: 3600000 # 1 hour in milliseconds
+  cors:
+    allowed-origins: "http://localhost:3000"
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:bookstoredb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
