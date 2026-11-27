@@ -1,4 +1,4 @@
-package bookstore.service;
+package com.bookstore.service;
 
 import com.bookstore.exception.BadRequestException;
 import com.bookstore.service.payment.PaymentAdapter;

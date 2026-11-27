@@ -1,4 +1,4 @@
-package bookstore.service;
+package com.bookstore.service;
 
 import com.bookstore.dto.auth.LoginRequest;
 import com.bookstore.dto.auth.RegisterRequest;
